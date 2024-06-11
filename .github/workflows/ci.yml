@@ -1,0 +1,48 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Set up .NET
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 8.0.x
+
+      # Restore dependencies and build backend
+      - name: Restore dependencies
+        run: dotnet restore TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj
+
+      # Run tests
+      - name: Test
+        run: dotnet test TaskManagementApp.Tests/TaskManagementApp.WebAPI.Tests/TaskManagementApp.WebAPI.Tests.csproj --no-build --verbosity normal
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      # Install dependencies and build frontend
+      - name: Install dependencies
+        run: npm install
+        working-directory: TaskManagementApp.UI
+
+      - name: Build
+        run: npm run build --if-present
+        working-directory: TaskManagementApp.UI
