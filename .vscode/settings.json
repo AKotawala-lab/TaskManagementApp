@@ -1,0 +1,15 @@
+{
+    "dotnet-test-explorer.autoExpandTree": true,
+    "dotnet-test-explorer.autoWatch": true,
+    "dotnet.defaultSolution": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.sln",
+    "dotnet-test-explorer.testProjectPath": "TaskManagementApp.UnitTests/TaskManagementApp.UnitTests.csproj",
+    "dotnet.server.useOmnisharp": true,
+    "csharp.preview.improvedLaunchExperience": true,
+    "dotnet.testWindow.useTestingPlatformProtocol": true,
+    "omnisharp.useModernNet": true,
+    "omnisharp.sdkPath": "latest",
+    "appService.defaultWebAppToDeploy": "",
+    "appService.deploySubpath": ""
+    //"appService.deploySubpath": "LibraryManagementApp.Web/dist/library-management-app.web/browser"
+    //"appService.deploySubpath": "LibraryManagementApp.API/publish"
+}

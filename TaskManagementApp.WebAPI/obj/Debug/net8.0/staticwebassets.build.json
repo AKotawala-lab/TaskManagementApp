@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Eg+ZKZ2/F8ts032TeJq1Y9KSwf7kwK5fiBlcC4aKkIE=",
+  "Source": "TaskManagementApp.WebAPI",
+  "BasePath": "_content/TaskManagementApp.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -25,6 +25,93 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj": {
+                "projectPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj"
+              },
+              "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Infrastructure\\TaskManagementApp.Infrastructure.csproj": {
+                "projectPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Infrastructure\\TaskManagementApp.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "IdentityModel": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Cryptography.KeyDerivation": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[9.0.0-preview.4.24266.19, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.6.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.6.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj",
+        "projectName": "TaskManagementApp.Domain",
+        "projectPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -42,6 +129,84 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Infrastructure\\TaskManagementApp.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Infrastructure\\TaskManagementApp.Infrastructure.csproj",
+        "projectName": "TaskManagementApp.Infrastructure",
+        "projectPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Infrastructure\\TaskManagementApp.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj": {
+                "projectPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

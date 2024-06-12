@@ -1,0 +1,13 @@
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\bin\Debug\net8.0\TaskManagementApp.Domain.deps.json
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\bin\Debug\net8.0\TaskManagementApp.Domain.dll
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\bin\Debug\net8.0\TaskManagementApp.Domain.pdb
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\obj\Debug\net8.0\TaskManagementApp.Domain.csproj.AssemblyReference.cache
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\obj\Debug\net8.0\TaskManagementApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\obj\Debug\net8.0\TaskManagementApp.Domain.AssemblyInfoInputs.cache
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\obj\Debug\net8.0\TaskManagementApp.Domain.AssemblyInfo.cs
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\obj\Debug\net8.0\TaskManagementApp.Domain.csproj.CoreCompileInputs.cache
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\obj\Debug\net8.0\TaskManagementApp.Domain.sourcelink.json
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\obj\Debug\net8.0\TaskManagementApp.Domain.dll
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\obj\Debug\net8.0\refint\TaskManagementApp.Domain.dll
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\obj\Debug\net8.0\TaskManagementApp.Domain.pdb
+D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Domain\obj\Debug\net8.0\ref\TaskManagementApp.Domain.dll
