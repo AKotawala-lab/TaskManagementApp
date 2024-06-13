@@ -6,37 +6,33 @@ namespace TaskManagementApp.Application.Services
 {
     public class UserManagementService : IUserManagementService
     {
-        private readonly IAuthenticationService _authenticationService;
+
         private readonly IUserRepository _userRepository;
 
-        public UserManagementService(IAuthenticationService authenticationService, IUserRepository userRepository)
+        public UserManagementService(IUserRepository userRepository)
         {
-            _authenticationService = authenticationService;
             _userRepository = userRepository;
         }
 
-        public async Task<User> RegisterUserAsync(string username, string password)
+        public async Task<User> GetUserByIdAsync(string id)
         {
-            var user = new User
-            {
-                Username = username,
-                Password = password
-            };
-
-            var registeredUser = await _userRepository.AddUserAsync(user);
-            return registeredUser;
+            return await _userRepository.GetUserByIdAsync(id);
         }
 
-        public async Task<User> AuthenticateUserAsync(string username, string password)
+        public async Task UpdateUserProfileAsync(string id, string username, string email, string avatarUrl)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(username);
-
-            if (user != null && user.Password == password)
+            var user = await _userRepository.GetUserByIdAsync(id);
+            
+            if (user == null)
             {
-                return user;
+                throw new Exception("User not found.");
             }
 
-            return null;
+            user.Username = username;
+            user.Email = email;
+            user.AvatarUrl = avatarUrl;
+
+            await _userRepository.AddUserAsync(user);  // This should update the user in the repository
         }
     }
 }

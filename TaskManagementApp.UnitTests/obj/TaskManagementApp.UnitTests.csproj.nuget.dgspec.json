@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.UnitTests\\TaskManagementApp.UnitTests.csproj": {}
+    "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.UnitTests\\TaskManagementApp.UnitTests.csproj": {}
   },
   "projects": {
-    "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj": {
+    "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj",
+        "projectUniqueName": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj",
         "projectName": "TaskManagementApp.Application",
-        "projectPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj",
+        "projectPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\obj\\",
+        "outputPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -227,14 +227,14 @@
         }
       }
     },
-    "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.UnitTests\\TaskManagementApp.UnitTests.csproj": {
+    "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.UnitTests\\TaskManagementApp.UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.UnitTests\\TaskManagementApp.UnitTests.csproj",
+        "projectUniqueName": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.UnitTests\\TaskManagementApp.UnitTests.csproj",
         "projectName": "TaskManagementApp.UnitTests",
-        "projectPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.UnitTests\\TaskManagementApp.UnitTests.csproj",
+        "projectPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.UnitTests\\TaskManagementApp.UnitTests.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.UnitTests\\obj\\",
+        "outputPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.UnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -249,8 +249,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj": {
-                "projectPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj"
+              "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj": {
+                "projectPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj"
               },
               "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj": {
                 "projectPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj"
@@ -352,8 +352,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj": {
-                "projectPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj"
+              "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj": {
+                "projectPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application\\TaskManagementApp.Application.csproj"
               }
             }
           }

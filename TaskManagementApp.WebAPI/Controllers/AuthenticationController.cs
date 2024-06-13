@@ -9,41 +9,80 @@ namespace TaskManagementApp.API.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
+        private readonly IAuthenticationService _authenticationService;
         private readonly IUserManagementService _userManagementService;
-        private readonly ITokenService _tokenService;
 
-        public AuthenticationController(IUserManagementService userManagementService, ITokenService tokenService)
+        public AuthenticationController(IAuthenticationService authenticationService, IUserManagementService userManagementService)
         {
+            _authenticationService = authenticationService;
             _userManagementService = userManagementService;
-            _tokenService = tokenService;
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(RegisterUserRequest request)
+        public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
         {
-            var user = await _userManagementService.RegisterUserAsync(request.Username, request.Password);
-
-            if (user == null)
+            try
             {
-                return BadRequest("User registration failed.");
-            }
+                var user = await _authenticationService.RegisterUserAsync(request.Username, request.Email, request.Password, request.AvatarUrl);
 
-            var token = _tokenService.GenerateToken(user);
-            return Ok(new { Token = token });
+                if (user == null)
+                {
+                    return BadRequest("User registration failed.");
+                }
+
+                var token = _authenticationService.GenerateToken(user);
+                return Ok(new { Token = token });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginUserRequest request)
+        public async Task<IActionResult> Login([FromBody] LoginUserRequest request)
         {
-            var user = await _userManagementService.AuthenticateUserAsync(request.Username, request.Password);
+            try
+            {
+                var user = await _authenticationService.LoginUserAsync(request.Username, request.Password);
 
+                if (user == null)
+                {
+                    return Unauthorized("Invalid username or password.");
+                }
+
+                var token = _authenticationService.GenerateToken(user);
+                return Ok(new { Token = token });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpGet("user/{id}")]
+        public async Task<IActionResult> GetUserById(string id)
+        {
+            var user = await _userManagementService.GetUserByIdAsync(id);
             if (user == null)
             {
-                return Unauthorized("Invalid username or password.");
+                return NotFound();
             }
+            return Ok(user);
+        }
 
-            var token = _tokenService.GenerateToken(user);
-            return Ok(new { Token = token });
+        [HttpPut("user/{id}")]
+        public async Task<IActionResult> UpdateUserProfile(string id, [FromBody] UpdateUserProfileRequest request)
+        {
+            try
+            {
+                await _userManagementService.UpdateUserProfileAsync(id, request.Username, request.Email, request.AvatarUrl);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
     }
 }

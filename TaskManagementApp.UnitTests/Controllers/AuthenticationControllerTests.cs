@@ -24,7 +24,9 @@ namespace TaskManagementApp.UnitTests.Controllers
             var request = new RegisterUserRequest
             {
                 Username = "newuser",
-                Password = "password123"
+                Password = "password123",
+                Email = "newuser@test.com",
+                AvatarUrl = ""
             };
 
             var response = await _client.PostAsync("/api/authentication/register", new StringContent(
@@ -43,7 +45,9 @@ namespace TaskManagementApp.UnitTests.Controllers
             var registerRequest = new RegisterUserRequest
             {
                 Username = "existinguser",
-                Password = "password123"
+                Password = "password123",
+                Email = "existinguser@test.com",
+                AvatarUrl = ""
             };
 
             await _client.PostAsync("/api/authentication/register", new StringContent(

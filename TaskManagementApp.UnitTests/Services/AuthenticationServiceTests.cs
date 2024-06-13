@@ -46,11 +46,11 @@ namespace TaskManagementApp.Application.Tests.Services
         public async Task RegisterUser_ShouldThrowException_WhenUsernameAlreadyExists()
         {
             // Arrange
-            var newUser = new User { Username = "existinguser", Password = "password123" };
+            var newUser = new User { Username = "existinguser", Password = "password123", Email = "existinguser@test.com", AvatarUrl = "" };
             _userRepositoryMock.Setup(repo => repo.GetUserByUsernameAsync(It.IsAny<string>())).ReturnsAsync(newUser);
 
             // Act
-            Func<Task> act = async () => { await _authenticationService.RegisterUser(newUser.Username, newUser.Password); };
+            Func<Task> act = async () => { await _authenticationService.RegisterUserAsync(newUser.Username, newUser.Password, newUser.Email, newUser.AvatarUrl); };
 
             // Assert
             await act.Should().ThrowAsync<Exception>().WithMessage("Username already exists");
@@ -66,7 +66,7 @@ namespace TaskManagementApp.Application.Tests.Services
             _passwordHasherMock.Setup(hasher => hasher.VerifyPassword(It.IsAny<string>(), It.IsAny<string>())).Returns(true);
 
             // Act
-            var result = await _authenticationService.LoginUser(existingUser.Username, "password123");
+            var result = await _authenticationService.LoginUserAsync(existingUser.Username, "password123");
 
             // Assert
             result.Should().BeEquivalentTo(existingUser);
@@ -82,7 +82,7 @@ namespace TaskManagementApp.Application.Tests.Services
             _passwordHasherMock.Setup(hasher => hasher.VerifyPassword(It.IsAny<string>(), It.IsAny<string>())).Returns(false);
 
             // Act
-            Func<Task> act = async () => { await _authenticationService.LoginUser(existingUser.Username, "wrongpassword"); };
+            Func<Task> act = async () => { await _authenticationService.LoginUserAsync(existingUser.Username, "wrongpassword"); };
 
             // Assert
             await act.Should().ThrowAsync<Exception>().WithMessage("Invalid username or password");

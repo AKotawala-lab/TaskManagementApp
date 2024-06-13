@@ -4,7 +4,7 @@ namespace TaskManagementApp.Application.Interfaces
 {
     public interface IUserManagementService
     {
-        Task<User> RegisterUserAsync(string username, string password);
-        Task<User> AuthenticateUserAsync(string username, string password);
+        Task<User> GetUserByIdAsync(string id);
+        Task UpdateUserProfileAsync(string id, string userName, string email, string avatarUrl);
     }
 }

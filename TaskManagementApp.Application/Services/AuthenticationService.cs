@@ -18,7 +18,7 @@ namespace TaskManagementApp.Application.Services
             _tokenService = tokenService;
         }
 
-        public async Task<User> RegisterUser(string username, string password)
+        public async Task<User> RegisterUserAsync(string username, string email, string password, string avatarUrl)
         {
             var existingUser = await _userRepository.GetUserByUsernameAsync(username);
             if (existingUser != null)
@@ -27,12 +27,20 @@ namespace TaskManagementApp.Application.Services
             }
 
             var hashedPassword = _passwordHasher.HashPassword(password);
-            var newUser = new User { Username = username, Password = hashedPassword };
+             var newUser = new User
+            {
+                Id = Guid.NewGuid().ToString(),
+                Username = username,
+                Email = email,
+                Password = hashedPassword,
+                AvatarUrl = avatarUrl
+            };
+
             await _userRepository.AddUserAsync(newUser);
             return newUser;
         }
 
-        public async Task<User> LoginUser(string username, string password)
+        public async Task<User> LoginUserAsync(string username, string password)
         {
             var user = await _userRepository.GetUserByUsernameAsync(username);
             if (user == null || !_passwordHasher.VerifyPassword(user.Password, password))

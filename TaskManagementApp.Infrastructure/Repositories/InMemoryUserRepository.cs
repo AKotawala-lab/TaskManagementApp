@@ -11,14 +11,27 @@ namespace TaskManagementApp.Infrastructure.Repositories
 
         public Task<User> AddUserAsync(User user)
         {
-            _users[user.Username] = user;
+            _users[user.Id] = user;
             return Task.FromResult(user);
         }
 
         public Task<User> GetUserByUsernameAsync(string username)
         {
-            _users.TryGetValue(username, out var user);
+            var user = _users.Values.FirstOrDefault(u => u.Username == username);
+            return Task.FromResult(user);
+        }
+
+        public Task<User> GetUserByEmailAsync(string email)
+        {
+            var user = _users.Values.FirstOrDefault(u => u.Email == email);
+            return Task.FromResult(user);
+        }
+
+        public Task<User> GetUserByIdAsync(string id)
+        {
+            _users.TryGetValue(id, out var user);
             return Task.FromResult(user);
         }
     }
+
 }

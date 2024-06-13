@@ -2792,8 +2792,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj": {
-              "projectPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj"
+            "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj": {
+              "projectPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj"
             }
           }
         }
