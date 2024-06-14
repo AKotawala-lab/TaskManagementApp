@@ -86,7 +86,11 @@ namespace TaskManagementApp.UnitTests.Controllers
 
             var result = await _taskController.UpdateTask(taskId, task);
 
-            result.Should().BeOfType<NoContentResult>();
+            result.Should().BeOfType<CreatedAtActionResult>();
+            var createdAtActionResult = result as CreatedAtActionResult;
+            createdAtActionResult.ActionName.Should().Be(nameof(_taskController.GetTaskById));
+            createdAtActionResult.RouteValues["id"].Should().Be(task.Id);
+            createdAtActionResult.Value.Should().BeEquivalentTo(task);
         }
 
         [Fact]

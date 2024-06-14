@@ -6,5 +6,7 @@ namespace TaskManagementApp.Application.Interfaces
     {
         Task<User> GetUserByIdAsync(string id);
         Task UpdateUserProfileAsync(string id, string userName, string email, string avatarUrl);
+        Task<User> GetUserByUsernameAsync(string username);
+        Task<User> GetUserByEmailAsync(string email);
     }
 }

@@ -34,5 +34,15 @@ namespace TaskManagementApp.Application.Services
 
             await _userRepository.AddUserAsync(user);  // This should update the user in the repository
         }
+        
+        public async Task<User> GetUserByUsernameAsync(string username)
+        {
+            return await _userRepository.GetUserByUsernameAsync(username);
+        }
+        
+        public async Task<User> GetUserByEmailAsync(string email)
+        {
+            return await _userRepository.GetUserByEmailAsync(email);
+        }
     }
 }

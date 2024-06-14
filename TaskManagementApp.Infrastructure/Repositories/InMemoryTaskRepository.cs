@@ -21,13 +21,13 @@ namespace TaskManagementApp.Infrastructure.Repositories
             return await Task.FromResult(_tasks);
         }
 
-        public async Task AddTaskAsync(UserTask task)
+        public async Task<UserTask> AddTaskAsync(UserTask task)
         {
             _tasks.Add(task);
-            await Task.CompletedTask;
+            return await Task.FromResult(task);
         }
 
-        public async Task UpdateTaskAsync(UserTask task)
+        public async Task<UserTask> UpdateTaskAsync(UserTask task)
         {
             var existingTask = _tasks.FirstOrDefault(t => t.Id == task.Id);
             if (existingTask != null)
@@ -35,9 +35,10 @@ namespace TaskManagementApp.Infrastructure.Repositories
                 existingTask.Title = task.Title;
                 existingTask.Description = task.Description;
                 existingTask.DueDate = task.DueDate;
+                existingTask.Priority = task.Priority;
                 existingTask.UserId = task.UserId;
             }
-            await Task.CompletedTask;
+            return await Task.FromResult(existingTask);
         }
 
         public async Task DeleteTaskAsync(string id)

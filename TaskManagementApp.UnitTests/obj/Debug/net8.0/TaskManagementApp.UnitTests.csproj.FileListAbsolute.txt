@@ -7,13 +7,13 @@ D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Un
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\obj\Debug\net8.0\TaskManagementApp.UnitTests.AssemblyInfo.cs
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\obj\Debug\net8.0\TaskManagementApp.UnitTests.csproj.CoreCompileInputs.cache
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\obj\Debug\net8.0\TaskManagementApp.UnitTests.sourcelink.json
-d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\testhost.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\TaskManagementApp.WebAPI.deps.json
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\TaskManagementApp.WebAPI.runtimeconfig.json
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\appsettings.Development.json
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\appsettings.json
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\TaskManagementApp.WebAPI.exe
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\testhost.exe
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\testhost.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\MvcTestingAppManifest.json
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\xunit.runner.visualstudio.testadapter.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\xunit.runner.reporters.netcoreapp10.dll

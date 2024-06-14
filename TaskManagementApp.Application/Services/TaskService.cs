@@ -25,14 +25,14 @@ namespace TaskManagementApp.Application.Services
             return await _taskRepository.GetAllTasksAsync();
         }
 
-        public async Task AddTaskAsync(UserTask task)
+        public async Task<UserTask> AddTaskAsync(UserTask task)
         {
-            await _taskRepository.AddTaskAsync(task);
+            return await _taskRepository.AddTaskAsync(task);
         }
 
-        public async Task UpdateTaskAsync(UserTask task)
+        public async Task<UserTask> UpdateTaskAsync(UserTask task)
         {
-            await _taskRepository.UpdateTaskAsync(task);
+            return await _taskRepository.UpdateTaskAsync(task);
         }
 
         public async Task DeleteTaskAsync(string id)
@@ -53,6 +53,39 @@ namespace TaskManagementApp.Application.Services
         public async Task<IEnumerable<UserTask>> SortTasksAsync(string userId, string sortBy)
         {
             return await _taskRepository.SortTasksAsync(userId, sortBy);
+        }
+
+        public async Task<UserTask> SetTaskPriorityAsync(string taskId, TaskPriority priority)
+        {
+            var task = await _taskRepository.GetTaskByIdAsync(taskId) ?? throw new Exception("Task not found");
+            task.Priority = priority;
+            return await _taskRepository.UpdateTaskAsync(task);
+        }
+
+        public async Task<UserTask> SetTaskDueDateAsync(string taskId, DateTime dueDate)
+        {
+            var task = await _taskRepository.GetTaskByIdAsync(taskId) ?? throw new Exception("Task not found");
+            task.DueDate = dueDate;
+            return await _taskRepository.UpdateTaskAsync(task);
+        }
+
+        public async Task<IEnumerable<UserTask>> GetTasksByDueDateAsync(string userId, DateTime dueDate)
+        {
+            var tasks = await _taskRepository.GetTasksByUserIdAsync(userId);
+            return tasks.Where(t => t.DueDate.Date == dueDate.Date);
+        }
+
+        // Simulate sending reminders
+        public async Task SendRemindersAsync()
+        {
+            var tasks = await _taskRepository.GetAllTasksAsync();
+            var tasksDueTomorrow = tasks.Where(t => t.DueDate.Date == DateTime.Now.AddDays(1).Date);
+
+            foreach (var task in tasksDueTomorrow)
+            {
+                // Logic to send reminder (e.g., email, notification, etc.)
+                Console.WriteLine($"Reminder: Task '{task.Title}' is due tomorrow.");
+            }
         }
     }
 }

@@ -7,16 +7,9 @@ namespace TaskManagementApp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthenticationController : ControllerBase
+    public class AuthenticationController(IAuthenticationService authenticationService) : ControllerBase
     {
-        private readonly IAuthenticationService _authenticationService;
-        private readonly IUserManagementService _userManagementService;
-
-        public AuthenticationController(IAuthenticationService authenticationService, IUserManagementService userManagementService)
-        {
-            _authenticationService = authenticationService;
-            _userManagementService = userManagementService;
-        }
+        private readonly IAuthenticationService _authenticationService = authenticationService;
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
@@ -53,31 +46,6 @@ namespace TaskManagementApp.API.Controllers
 
                 var token = _authenticationService.GenerateToken(user);
                 return Ok(new { Token = token });
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-        }
-
-        [HttpGet("user/{id}")]
-        public async Task<IActionResult> GetUserById(string id)
-        {
-            var user = await _userManagementService.GetUserByIdAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            return Ok(user);
-        }
-
-        [HttpPut("user/{id}")]
-        public async Task<IActionResult> UpdateUserProfile(string id, [FromBody] UpdateUserProfileRequest request)
-        {
-            try
-            {
-                await _userManagementService.UpdateUserProfileAsync(id, request.Username, request.Email, request.AvatarUrl);
-                return NoContent();
             }
             catch (Exception ex)
             {

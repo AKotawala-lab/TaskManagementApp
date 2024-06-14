@@ -214,7 +214,7 @@ namespace TaskManagementApp.Application.Tests.Services
             // Arrange
             var userId = "user1";
             var sortBy = "createdAt";
-            var testTasks = GetTestTasks();
+            var testTasks = GetTestTasksList();
             //SetUpMockTaskSet(testTasks);
             var tasksQuery = testTasks.Where(t => t.UserId == userId);
 
@@ -234,6 +234,38 @@ namespace TaskManagementApp.Application.Tests.Services
             Assert.Equal(2, result.Count());
             Assert.Equal("Task 1", result.First().Title);
             Assert.Equal("Task 2", result.Last().Title);
+        }
+
+        [Fact]
+        public async Task SetTaskPriorityAsync_ShouldSetPriority()
+        {
+            // Arrange
+            var task = GetTestTasksList().First();
+            _taskRepositoryMock.Setup(repo => repo.GetTaskByIdAsync(task.Id)).ReturnsAsync(task);
+            //_taskRepositoryMock.Setup(repo => repo.UpdateTaskAsync(It.IsAny<Task>())).ReturnsAsync(task);
+
+            // Act
+            await _taskService.SetTaskPriorityAsync(task.Id, TaskPriority.High);
+            var result = await _taskService.GetTaskByIdAsync(task.Id);
+
+            // Assert
+            Assert.Equal(TaskPriority.High, result.Priority);
+        }
+
+        [Fact]
+        public async Task SetTaskDueDateAsync_ShouldSetTaskDueDate()
+        {
+            // Arrange
+            var task = GetTestTasksList().First();
+            var newDueDate = DateTime.Now.AddDays(4);
+            _taskRepositoryMock.Setup(repo => repo.GetTaskByIdAsync(task.Id)).ReturnsAsync(task);
+
+            // Act
+            await _taskService.SetTaskDueDateAsync(task.Id, newDueDate);
+            var result = await _taskService.GetTaskByIdAsync(task.Id);
+
+            // Assert
+            Assert.Equal(newDueDate, result.DueDate);
         }
     }
 }

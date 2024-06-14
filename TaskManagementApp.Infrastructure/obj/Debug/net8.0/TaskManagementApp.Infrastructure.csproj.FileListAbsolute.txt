@@ -1,4 +1,4 @@
-D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Infrastructure.deps.json
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Infrastructure.deps.json
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Infrastructure.dll
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Infrastructure.pdb
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\bin\Debug\net8.0\TaskManagementApp.Domain.dll
@@ -9,8 +9,8 @@ D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.In
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.AssemblyInfo.cs
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.csproj.CoreCompileInputs.cache
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.sourcelink.json
-D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskMana.C4BDB0B3.Up2Date
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskMana.C4BDB0B3.Up2Date
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.dll
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\refint\TaskManagementApp.Infrastructure.dll
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\TaskManagementApp.Infrastructure.pdb
-D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\ref\TaskManagementApp.Infrastructure.dll
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Infrastructure\obj\Debug\net8.0\ref\TaskManagementApp.Infrastructure.dll
