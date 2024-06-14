@@ -27,12 +27,7 @@ builder.Services.AddScoped<IUserManagementService, UserManagementService>();
 // Configure AuthenticationService
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
-// Configure User Repository for Development
-#if DEBUG
 builder.Services.AddSingleton<IUserRepository, InMemoryUserRepository>();
-#else
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-#endif
 builder.Services.AddSingleton<ITaskRepository, InMemoryTaskRepository>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<ITaskService, TaskService>();
