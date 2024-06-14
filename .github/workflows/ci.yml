@@ -7,42 +7,48 @@ on:
   pull_request:
     branches:
       - main
-
+env:
+  AZURE_WEBAPP_NAME: ad-taskmanagement-demo
+  AZURE_WEBAPI_PACKAGE_PATH: "./publish"
+  AZURE_WEBUI_PACKAGE_PATH: "./publish/wwwroot"
+  
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      # Set up .NET
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v1
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v2
         with:
           dotnet-version: 8.0.x
 
-      # Restore dependencies and build backend
-      - name: Restore dependencies
-        run: dotnet restore TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj
-
-      - name: Build
-        run: dotnet build --configuration Release --no-restore TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj
-
-      # Run tests
-      - name: Test
-        run: dotnet test TaskManagementApp.Tests/TaskManagementApp.WebAPI.Tests/TaskManagementApp.WebAPI.Tests.csproj --no-build --verbosity normal
-
-      # Set up Node.js
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: '20.x'
 
-      # Install dependencies and build frontend
-      - name: Install dependencies
-        run: npm install
-        working-directory: TaskManagementApp.UI
+      - name: Install dependencies for backend
+        run: dotnet restore ./TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj
 
       - name: Build
-        run: npm run build --if-present
-        working-directory: TaskManagementApp.UI
+        run: dotnet build --configuration Release --no-restore ./TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj
+
+      - name: Test
+        run: dotnet test ./TaskManagementApp.UnitTests/TaskManagementApp.UnitTests.csproj --no-build --verbosity normal
+
+      - name: Publish backend
+        run: dotnet publish ./TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+
+      - name: Install dependencies for frontend
+        run: npm install --prefix ./ClientApp
+        working-directory: ./TaskManagementApp.UI
+
+      - name: Build
+        run: npm run build --if-present --prefix ./ClientApp
+        working-directory: ./TaskManagementApp.UI
+
+      - name: Copy frontend build to backend publish folder
+        run: cp -r ./ClientApp/build/* ${{ env.AZURE_WEBUI_PACKAGE_PATH }}       
