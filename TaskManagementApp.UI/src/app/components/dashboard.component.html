@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center mt-4">
+      <div class="col-md-8 text-center">
+        <img [src]="user.avatarUrl || 'path/to/default-avatar.png'" class="avatar" alt="User Avatar">
+        <h2>{{ user.username }}</h2>
+        <div class="date-navigation">
+          <button (click)="previousDay()">&lt;</button>
+          <span>{{ currentDate | date: 'fullDate' }}</span>
+          <button (click)="nextDay()">&gt;</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card high-priority">
+          <div class="card-header">High Priority</div>
+          <div class="card-body">
+            <div *ngFor="let task of highPriorityTasks" class="task-tile" draggable="true">
+              <div class="task-header">
+                <span>{{ task.title }}</span>
+                <div class="task-actions">
+                  <i class="fa fa-edit" (click)="editTask(task)"></i>
+                  <i class="fa fa-trash" (click)="deleteTask(task)"></i>
+                  <i class="fa fa-caret-down" (click)="toggleDetails(task)"></i>
+                </div>
+              </div>
+              <div *ngIf="task.showDetails" class="task-details">
+                <!--{{ task.details }}-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card medium-priority">
+          <div class="card-header">Medium Priority</div>
+          <div class="card-body">
+            <div *ngFor="let task of mediumPriorityTasks" class="task-tile" draggable="true">
+              <div class="task-header">
+                <span>{{ task.title }}</span>
+                <div class="task-actions">
+                  <i class="fa fa-edit" (click)="editTask(task)"></i>
+                  <i class="fa fa-trash" (click)="deleteTask(task)"></i>
+                  <i class="fa fa-caret-down" (click)="toggleDetails(task)"></i>
+                </div>
+              </div>
+              <div *ngIf="task.showDetails" class="task-details">
+                <!--{{ task.details }}-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card low-priority">
+          <div class="card-header">Low Priority</div>
+          <div class="card-body">
+            <div *ngFor="let task of lowPriorityTasks" class="task-tile" draggable="true">
+              <div class="task-header">
+                <span>{{ task.title }}</span>
+                <div class="task-actions">
+                  <i class="fa fa-edit" (click)="editTask(task)"></i>
+                  <i class="fa fa-trash" (click)="deleteTask(task)"></i>
+                  <i class="fa fa-caret-down" (click)="toggleDetails(task)"></i>
+                </div>
+              </div>
+              <div *ngIf="task.showDetails" class="task-details">
+                <!--{{ task.details }}-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

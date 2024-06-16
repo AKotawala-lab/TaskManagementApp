@@ -2,14 +2,22 @@ using Microsoft.AspNetCore.Mvc;
 using TaskManagementApp.Application.Interfaces;
 using TaskManagementApp.Domain.Entities;
 using TaskManagementApp.Application.Models;
+using TaskManagementApp.Application.Exceptions;
 
 namespace TaskManagementApp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthenticationController(IAuthenticationService authenticationService) : ControllerBase
+    public class AuthenticationController : ControllerBase
     {
-        private readonly IAuthenticationService _authenticationService = authenticationService;
+        private readonly IAuthenticationService _authenticationService;
+        private readonly IUserManagementService _userManagementService;
+
+        public AuthenticationController(IAuthenticationService authenticationService, IUserManagementService userManagementService)
+        {
+            _authenticationService = authenticationService;
+            _userManagementService = userManagementService;
+        }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
@@ -24,7 +32,11 @@ namespace TaskManagementApp.API.Controllers
                 }
 
                 var token = _authenticationService.GenerateToken(user);
-                return Ok(new { Token = token });
+                return Ok(new { Token = token, User = user });
+            }
+            catch (CustomException cex)
+            {
+                return Conflict(new { message = cex.Message });
             }
             catch (Exception ex)
             {
@@ -45,12 +57,23 @@ namespace TaskManagementApp.API.Controllers
                 }
 
                 var token = _authenticationService.GenerateToken(user);
-                return Ok(new { Token = token });
+                return Ok(new { Token = token, User = user });
             }
             catch (Exception ex)
             {
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpGet("getusername/{email}")]
+        public async Task<IActionResult> GetUsernameByEmail(string email)
+        {
+            var user = await _userManagementService.GetUserByEmailAsync(email);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user.Username);
+        }          
     }
 }

@@ -55,7 +55,7 @@ namespace TaskManagementApp.API.Controllers
         [HttpGet("userbyemail/{email}")]
         public async Task<IActionResult> GetUserByEmail(string email)
         {
-            var user = await _userManagementService.GetUserByUsernameAsync(email);
+            var user = await _userManagementService.GetUserByEmailAsync(email);
             if (user == null)
             {
                 return NotFound();

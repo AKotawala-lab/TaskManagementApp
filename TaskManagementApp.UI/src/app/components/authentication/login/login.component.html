@@ -1,0 +1,53 @@
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-md-6 col-lg-4">
+        <h1 class="text-center">Task Management</h1>
+        <h5 class="text-center text-muted">Let's <span style="color: #007bff;">Conquer Your Day</span> One Task At A Time</h5>
+        
+        <div class="card p-4 mt-5" id="login-card">
+          <div class="text-right">
+            <a class="create-account-link" (click)="onCreateAccountClick()">Create a Account</a>
+          </div>
+          <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div class="form-group position-relative" [ngClass]="{'is-invalid': loginForm.submitted && !email}">
+              <h3 class="card-title text-left">Log In</h3>
+              <p class="text-muted d-block mb-4">What's your email?</p>
+              <div class="fontemail">
+                <i class="fa fa-envelope"></i>
+                <input type="email" id="email" class="form-control" placeholder="{{ loginForm.submitted && !email ? 'Email Required!' : 'Type here to login!' }}" name="email" [(ngModel)]="email" required (input)="onEmailInput()" />
+                <i *ngIf="email" class="fa fa-times-circle" (click)="clearEmail()"></i>
+              </div>
+            </div>
+            <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+            <div class="d-grid gap-2 col-12 mx-auto mt-4">
+              <button type="submit" class="btn btn-primary">Continue <i class="fa fa-arrow-right"></i></button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card p-4 mt-5" id="password-card" *ngIf="showPasswordCard">
+          <div class="text-right">
+            <a class="create-account-link" (click)="onCreateAccountClick()">Create a Account</a>
+          </div>
+          <form (ngSubmit)="onPasswordSubmit()" #passwordForm="ngForm">
+            <div class="form-group" [ngClass]="{'is-invalid': passwordForm.submitted && !password}">
+              <h3 class="card-title text-left">Log In</h3>
+              <p class="text-muted d-block mb-4">Using <b>{{ email }}</b> to log in</p>
+              <div class="fontpassword">
+                <i class="fa fa-key fa-md"></i>
+                <input [type]="fieldTextType ? 'text' : 'password'" id="password" class="form-control" placeholder="Enter Your Password" name="password" [(ngModel)]="password" required />
+                <i class="fa" [ngClass]="{ 'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType }" (click)="toggleFieldTextType()"></i>
+              </div>
+            </div>
+            <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+            <div class="d-grid gap-2 col-12 mx-auto mt-4">
+              <button type="submit" class="btn btn-primary">Continue</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,123 @@
+body {
+    font-family: 'asap', sans-serif;
+  }
+  
+  .container {
+    text-align: left;
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #signup-card {
+    animation: splash 0.5s ease-out;
+  }
+  
+  .is-invalid input {
+    border-color: red;
+    background-color: #ffe6e6;
+  }
+  
+  .is-invalid input::placeholder {
+    color: red;
+  }
+  
+  .create-account-link {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+    padding-left: 30px;
+    padding-right: 25px;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #007bff;
+    box-shadow: none;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+  }
+  
+  .clear-email:hover {
+    background-color: #0056b3;
+  }
+  
+  .fontemail { 
+    position: relative; 
+  } 
+  
+  .fontemail i.fa-envelope{ 
+    position: absolute; 
+    left: 3px; 
+    top: 10px; 
+    color: #007bff; 
+  } 
+  
+  .fontemail i.fa-times-circle,
+  .fontusername i.fa-times-circle{ 
+    position: absolute; 
+    right: 3px; 
+    top: 12px; 
+    color: #007bff; 
+  } 
+  
+  .fontusername { 
+    position: relative; 
+  } 
+  
+  .fontusername i.fa-user{ 
+    position: absolute; 
+    left: 3px; 
+    top: 10px; 
+    color: #007bff; 
+  } 
+  
+  .fontpassword { 
+    position: relative; 
+  } 
+  
+  .fontpassword i.fa-key{ 
+    position: absolute; 
+    left: 3px; 
+    top: 10px; 
+    color: #007bff; 
+  } 
+  
+  .fontpassword i.fa-eye-slash,
+  .fontpassword i.fa-eye{ 
+    position: absolute; 
+    right: 3px; 
+    top: 12px; 
+    color: #007bff; 
+  } 
+  
+  @keyframes splash {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  

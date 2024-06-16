@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using TaskManagementApp.Application.Exceptions;
 using TaskManagementApp.Application.Interfaces;
 using TaskManagementApp.Domain.Entities;
 
@@ -23,7 +24,7 @@ namespace TaskManagementApp.Application.Services
             var existingUser = await _userRepository.GetUserByUsernameAsync(username);
             if (existingUser != null)
             {
-                throw new Exception("Username already exists");
+                throw new CustomException("Username already exists");
             }
 
             var hashedPassword = _passwordHasher.HashPassword(password);
