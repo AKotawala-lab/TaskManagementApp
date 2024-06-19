@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using TaskManagementApp.Application.Exceptions;
 using TaskManagementApp.Application.Interfaces;
+using TaskManagementApp.Application.Models;
 using TaskManagementApp.Domain.Entities;
 
 namespace TaskManagementApp.Application.Services
@@ -51,7 +52,7 @@ namespace TaskManagementApp.Application.Services
             return user;
         }
 
-        public string GenerateToken(User user)
+        public AuthResponse GenerateToken(User user)
         {
             return _tokenService.GenerateToken(user);
         }

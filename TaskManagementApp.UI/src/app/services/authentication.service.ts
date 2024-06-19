@@ -12,7 +12,8 @@ import { RegisterUserRequest } from '../models/registerrequest.model';
 })
 export class AuthenticationService {
   private baseUrl = environment.apiUrl + '/authentication';
-  private tokenKey = 'jwt_token';
+  private accessTokenKey = 'jwt_access_token';
+  private refreshTokenKey = 'jwt_refresh_token';
   private userKey = 'current_user';
 
   constructor(private http: HttpClient) {}
@@ -20,9 +21,8 @@ export class AuthenticationService {
   login(loginUserRequest: LoginUserRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.baseUrl}/login`, loginUserRequest).pipe(
         tap(response => {
-          if (response && response.token) {
-            localStorage.setItem(this.tokenKey, response.token);
-            localStorage.setItem(this.userKey, JSON.stringify(response.user));
+          if (response) {
+            this.storeTokens(response);
           }
         }),
         catchError(this.handleError<AuthResponse>('login'))
@@ -39,9 +39,8 @@ export class AuthenticationService {
   register(registerUserRequest: RegisterUserRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.baseUrl}/register`, registerUserRequest).pipe(
       tap(response => {
-        if (response && response.token) {
-          localStorage.setItem(this.tokenKey, response.token);
-          localStorage.setItem(this.userKey, JSON.stringify(response.user));
+        if (response) {
+          this.storeTokens(response);
         }
       }),
       catchError(this.handleError<AuthResponse>('register'))
@@ -49,8 +48,30 @@ export class AuthenticationService {
   }
 
   getToken(): string {
-    const token = localStorage.getItem(this.tokenKey);
-    return token ? token : "";
+    const aToken = localStorage.getItem(this.accessTokenKey);
+    return aToken ? aToken : "";
+  }
+
+  getRefreshToken(): string {
+    const rToken = localStorage.getItem(this.refreshTokenKey);
+    return rToken ? rToken : "";
+  }
+
+  storeTokens(authResponse: AuthResponse): void {
+    localStorage.setItem(this.accessTokenKey, authResponse.accessToken);
+    localStorage.setItem(this.refreshTokenKey, authResponse.refreshToken);
+    localStorage.setItem(this.userKey, JSON.stringify(authResponse.user));
+  }
+
+  refreshToken(): Observable<AuthResponse> {
+    const refreshRequest = {
+      accessToken: this.getToken(),
+      refreshToken: this.getRefreshToken()
+    };
+    return this.http.post<AuthResponse>(`${this.baseUrl}/refresh`, refreshRequest).pipe(
+      tap(authResponse => this.storeTokens(authResponse)),
+      catchError(this.handleError<AuthResponse>('refreshToken'))
+    );
   }
 
   getCurrentUser(): any {
@@ -59,7 +80,8 @@ export class AuthenticationService {
   }
 
   logout(): void {
-    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.accessTokenKey);
+    localStorage.removeItem(this.refreshTokenKey);
     localStorage.removeItem(this.userKey);
   }
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Xunit;
 using FluentAssertions;
 using TaskManagementApp.Application.Models;
+using TaskManagementApp.Domain.Entities;
 
 namespace TaskManagementApp.UnitTests.Controllers
 {
@@ -21,6 +22,7 @@ namespace TaskManagementApp.UnitTests.Controllers
         [Fact]
         public async Task Register_ShouldReturnToken_WhenRegistrationIsSuccessful()
         {
+            // Arrange
             var request = new RegisterUserRequest
             {
                 Username = "newuser",
@@ -29,13 +31,19 @@ namespace TaskManagementApp.UnitTests.Controllers
                 AvatarUrl = ""
             };
 
+            // Act
             var response = await _client.PostAsync("/api/authentication/register", new StringContent(
                 JsonSerializer.Serialize(request), Encoding.UTF8, "application/json"));
 
+            // Assert
             response.EnsureSuccessStatusCode();
-
             var responseString = await response.Content.ReadAsStringAsync();
-            responseString.Should().Contain("token");
+
+            // Deserialize the response to verify the structure
+            var jsonResponse = JsonSerializer.Deserialize<AuthResponse>(responseString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            jsonResponse.AccessToken.Should().NotBeNullOrEmpty();
+            jsonResponse.RefreshToken.Should().NotBeNullOrEmpty();
         }
 
         [Fact]
@@ -64,9 +72,13 @@ namespace TaskManagementApp.UnitTests.Controllers
                 JsonSerializer.Serialize(loginRequest), Encoding.UTF8, "application/json"));
 
             response.EnsureSuccessStatusCode();
-
             var responseString = await response.Content.ReadAsStringAsync();
-            responseString.Should().Contain("token");
+
+            // Deserialize the response to verify the structure
+            var jsonResponse = JsonSerializer.Deserialize<AuthResponse>(responseString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            jsonResponse.AccessToken.Should().NotBeNullOrEmpty();
+            jsonResponse.RefreshToken.Should().NotBeNullOrEmpty();
         }
     }
 }

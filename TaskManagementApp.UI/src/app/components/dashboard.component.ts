@@ -23,6 +23,11 @@ export class DashboardComponent implements OnInit {
   errorMessage: string = '';
   searchTerm: string = '';
   avatarUrl: string = 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Person_Image_Placeholder.png';
+  sortDirection: { [key: string]: boolean } = {
+    high: true,
+    medium: true,
+    low: true
+  };
 
   constructor(
     private router: Router,
@@ -31,6 +36,7 @@ export class DashboardComponent implements OnInit {
     private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    
     this.user = this.authService.getCurrentUser();
     if (this.user.avatarUrl)
       this.avatarUrl = this.user.avatarUrl;
@@ -80,6 +86,33 @@ export class DashboardComponent implements OnInit {
       this.lowPriorityTasks = this.allTasks.filter(task => 
         task.dueDate.split('T')[0] === dateStr &&
         task.priority === TaskPriority.Low);
+    }
+  }
+
+  toggleSort(priority: string): void {
+    this.sortDirection[priority] = !this.sortDirection[priority];
+    switch (priority) {
+      case 'high':
+        this.highPriorityTasks.sort((a, b) =>
+          this.sortDirection[priority]
+            ? new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()
+            : new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime()
+        );
+        break;
+      case 'medium':
+        this.mediumPriorityTasks.sort((a, b) =>
+          this.sortDirection[priority]
+            ? new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()
+            : new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime()
+        );
+        break;
+      case 'low':
+        this.lowPriorityTasks.sort((a, b) =>
+          this.sortDirection[priority]
+            ? new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()
+            : new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime()
+        );
+        break;
     }
   }
 

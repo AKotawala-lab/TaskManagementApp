@@ -1,59 +1,51 @@
 <div class="container">
-    <div class="row justify-content-center align-items-center mb-3">
-      <div class="col-md-8">
-        <div class="user-info">
-          <div class="avatar"><img [src]="avatarUrl" class="avatar img-responsive" alt="User Avatar"></div>
-          <div class="username"><h2>{{ user.username }}</h2></div>
-        </div>
-      </div>
-      <div class="col-md-4 float-end">
-        <button class="btn btn-primary" (click)="logout()">Logout</button>
+  <div class="header mt-4">
+    <h1 class="title">Task Management</h1>
+    <p class="subtitle">Let's <span style="color: #007bff;">Conquer Your Day</span> One Task At A Time</p>
+  </div>
+  <div class="row justify-content-center align-items-center mb-3">
+    <div class="col-md-8">
+      <div class="user-info">
+        <div class="avatar"><img [src]="avatarUrl" class="avatar img-responsive" alt="User Avatar"></div>
+        <div class="username"><h2>{{ user.username }}</h2></div>
       </div>
     </div>
+    <div class="col-md-4 text-end">
+      <button class="btn btn-primary" (click)="logout()">Logout</button>
+    </div>
+  </div>
 
-    <div class="row align-items-center date-navigation mb-4">
-      <div class="col-md-4">
-        <button class="btn btn-primary" (click)="openCreateTaskModal()">Create Task</button>
-      </div>
-      <div class="col-md-4 text-center fontdatenav">
-        <i class="fa fa-arrow-left" (click)="previousDay()"></i>
-        <span class="current-date">{{ currentDate | date: 'fullDate' }}</span>
-        <i class="fa fa-arrow-right" (click)="nextDay()"></i>
-      </div>
-      <div class="col-md-4 float-end fontsearch">
+  <div class="row align-items-center date-navigation mb-4">
+    <div class="col-md-4">
+      <button class="btn btn-primary" (click)="openCreateTaskModal()">Create Task</button>
+    </div>
+    <div class="col-md-4 text-center fontdatenav">
+      <i class="fa fa-arrow-left" (click)="previousDay()"></i>
+      <span class="current-date">{{ currentDate | date: 'fullDate' }}</span>
+      <i class="fa fa-arrow-right" (click)="nextDay()"></i>
+    </div>
+    <div class="col-md-4 float-end fontsearch">
+      <div class="search-container">
         <input type="text" class="form-control search-input" placeholder="Search tasks..." [(ngModel)]="searchTerm" (input)="filterTasks()">
-        <i class="fa fa-search"></i>
+        <i class="fa fa-search search-icon"></i>
       </div>
     </div>
+  </div>
 
-    <div class="row mt-4">
-      <div class="col-md-4">
-        <div class="card high-priority-card">
-          <div class="card-header">High Priority</div>
-          <div class="card-body">
-            <div *ngFor="let task of highPriorityTasks" class="task-tile high-priority" draggable="true">
-                <div class="task-header">
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card high-priority-card">
+        <div class="card-header">
+          High Priority
+          <i class="fa fa-sort" (click)="toggleSort('high')" aria-hidden="true"></i>
+        </div>
+        <div class="card-body">
+          <div *ngFor="let task of highPriorityTasks" class="task-tile high-priority" draggable="true">
+              <div class="task-header">
+                <div>
                   <span>{{ task.title }}</span>
-                  <div class="task-actions">
-                    <i class="fa fa-edit" (click)="editTask(task)"></i>
-                    <i class="fa fa-trash" (click)="deleteTask(task)"></i>
-                    <i class="fa fa-caret-down" (click)="toggleDetails(task)"></i>
-                  </div>
+                  <div class="task-due-time">{{ task.dueDate | date: 'shortTime' }}</div>
                 </div>
-                <div *ngIf="task.showDetails" class="task-details">
-                  {{ task.description }}
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card medium-priority-card">
-          <div class="card-header">Medium Priority</div>
-          <div class="card-body">
-            <div *ngFor="let task of mediumPriorityTasks" class="task-tile medium-priority" draggable="true">
-              <div class="task-header">
-                <span>{{ task.title }}</span>
                 <div class="task-actions">
                   <i class="fa fa-edit" (click)="editTask(task)"></i>
                   <i class="fa fa-trash" (click)="deleteTask(task)"></i>
@@ -63,30 +55,62 @@
               <div *ngIf="task.showDetails" class="task-details">
                 {{ task.description }}
               </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card medium-priority-card">
+        <div class="card-header">
+          Medium Priority
+          <i class="fa fa-sort" (click)="toggleSort('medium')" aria-hidden="true"></i>
+        </div>
+        <div class="card-body">
+          <div *ngFor="let task of mediumPriorityTasks" class="task-tile medium-priority" draggable="true">
+            <div class="task-header">
+              <div>
+                <span>{{ task.title }}</span>
+                <div class="task-due-time">{{ task.dueDate | date: 'shortTime' }}</div>
+              </div>
+              <div class="task-actions">
+                <i class="fa fa-edit" (click)="editTask(task)"></i>
+                <i class="fa fa-trash" (click)="deleteTask(task)"></i>
+                <i class="fa fa-caret-down" (click)="toggleDetails(task)"></i>
+              </div>
+            </div>
+            <div *ngIf="task.showDetails" class="task-details">
+              {{ task.description }}
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card low-priority-card">
-          <div class="card-header">Low Priority</div>
-          <div class="card-body">
-            <div *ngFor="let task of lowPriorityTasks" class="task-tile low-priority" draggable="true">
-              <div class="task-header">
+    </div>
+    <div class="col-md-4">
+      <div class="card low-priority-card">
+        <div class="card-header">
+          Low Priority
+          <i class="fa fa-sort" (click)="toggleSort('low')" aria-hidden="true"></i>
+        </div>
+        <div class="card-body">
+          <div *ngFor="let task of lowPriorityTasks" class="task-tile low-priority" draggable="true">
+            <div class="task-header">
+              <div>
                 <span>{{ task.title }}</span>
-                <div class="task-actions">
-                  <i class="fa fa-edit" (click)="editTask(task)"></i>
-                  <i class="fa fa-trash" (click)="deleteTask(task)"></i>
-                  <i class="fa fa-caret-down" (click)="toggleDetails(task)"></i>
-                </div>
+                <div class="task-due-time">{{ task.dueDate | date: 'shortTime' }}</div>
               </div>
-              <div *ngIf="task.showDetails" class="task-details">
-                {{ task.description }}
+              <div class="task-actions">
+                <i class="fa fa-edit" (click)="editTask(task)"></i>
+                <i class="fa fa-trash" (click)="deleteTask(task)"></i>
+                <i class="fa fa-caret-down" (click)="toggleDetails(task)"></i>
               </div>
+            </div>
+            <div *ngIf="task.showDetails" class="task-details">
+              {{ task.description }}
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
   

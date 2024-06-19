@@ -9,6 +9,7 @@ using TaskManagementApp.Application.Interfaces;
 using TaskManagementApp.Application.Services;
 using TaskManagementApp.Domain;
 using TaskManagementApp.Infrastructure.Persistence;
+using TaskManagementApp.Application.Helpers;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,7 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+ConfigurationHelper.Initialize(builder.Configuration);
 
 // Register UserManagementService
 builder.Services.AddScoped<IUserManagementService, UserManagementService>();

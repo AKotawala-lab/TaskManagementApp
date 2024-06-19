@@ -3,6 +3,7 @@ using FluentAssertions;
 using Moq;
 using TaskManagementApp.Application.Interfaces;
 using TaskManagementApp.Application.Services;
+using TaskManagementApp.Application.Models;
 using TaskManagementApp.Domain.Entities;
 using Xunit;
 
@@ -94,13 +95,15 @@ namespace TaskManagementApp.Application.Tests.Services
         {
             // Arrange
             var user = new User { Username = "testuser", Id = Guid.NewGuid().ToString() };
-            _tokenServiceMock.Setup(ts => ts.GenerateToken(user)).Returns("valid_token");
+            var authResponse = new AuthResponse { AccessToken = "valid_token", RefreshToken = "valid_refresh_token" };
+            _tokenServiceMock.Setup(ts => ts.GenerateToken(user)).Returns(authResponse);
 
             // Act
             var token = _authenticationService.GenerateToken(user);
 
             // Assert
-            token.Should().Be("valid_token");
+            token.AccessToken.Should().Be("valid_token");
+            token.RefreshToken.Should().Be("valid_refresh_token");
         }
 
     }

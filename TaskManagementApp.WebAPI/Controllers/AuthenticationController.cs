@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskManagementApp.Application.Interfaces;
-using TaskManagementApp.Domain.Entities;
 using TaskManagementApp.Application.Models;
 using TaskManagementApp.Application.Exceptions;
+using TaskManagementApp.Application.Services;
 
 namespace TaskManagementApp.API.Controllers
 {
@@ -31,8 +31,8 @@ namespace TaskManagementApp.API.Controllers
                     return BadRequest("User registration failed.");
                 }
 
-                var token = _authenticationService.GenerateToken(user);
-                return Ok(new { Token = token, User = user });
+                var authResponse = _authenticationService.GenerateToken(user);
+                return Ok(new { AccessToken = authResponse.AccessToken, RefreshToken = authResponse.RefreshToken, User = user });
             }
             catch (CustomException cex)
             {
@@ -56,8 +56,8 @@ namespace TaskManagementApp.API.Controllers
                     return Unauthorized("Invalid username or password.");
                 }
 
-                var token = _authenticationService.GenerateToken(user);
-                return Ok(new { Token = token, User = user });
+                var authResponse = _authenticationService.GenerateToken(user);
+                return Ok(new { AccessToken = authResponse.AccessToken, RefreshToken = authResponse.RefreshToken, User = user });
             }
             catch (Exception ex)
             {
@@ -74,6 +74,29 @@ namespace TaskManagementApp.API.Controllers
                 return NotFound();
             }
             return Ok(user.Username);
-        }          
+        }     
+
+        [HttpPost("refresh")]
+        public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest request)
+        {
+            string errMessage = "Invalid access token or refresh token. Please Logout and Login again.";
+            var principal = TokenService.GetPrincipalFromExpiredToken(request.AccessToken);
+            if (principal == null)
+            {
+                return Conflict(new { message = errMessage });
+            }
+
+            var username = principal.Claims.FirstOrDefault(c => c.Type == "username")?.Value;
+            var user = await _userManagementService.GetUserByUsernameAsync(username);
+
+            if (user == null)   //|| user.RefreshToken != request.RefreshToken
+            {
+                return Conflict(new { message = errMessage });
+            }
+
+            var newToken = _authenticationService.GenerateToken(user);
+
+            return Ok(new { AccessToken = newToken.AccessToken, RefreshToken = newToken.RefreshToken, User = user });
+        }     
     }
 }
