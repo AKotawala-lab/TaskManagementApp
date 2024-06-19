@@ -1,0 +1,87 @@
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative; 
+  }
+  
+  .modal-title {
+    font-weight: bold;
+  }
+  
+  .modal-header i.fa-times-circle{ 
+    position: absolute; 
+    right: 20px; 
+    top: 25px; 
+    color: #ffffff; 
+  } 
+
+  .close {
+    color: white;
+    opacity: 1;
+  }
+  
+  .close:hover {
+    color: #d1e9ff;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control,
+  .form-select {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .form-control:focus,
+  .form-select:focus {
+    border-color: #007bff;
+    box-shadow: none;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .alert-danger {
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .modal-footer {
+    border-top: 1px solid #dee2e6;
+    padding-top: 15px;
+  }
+  
+  textarea.form-control {
+    resize: none;
+  }
+  

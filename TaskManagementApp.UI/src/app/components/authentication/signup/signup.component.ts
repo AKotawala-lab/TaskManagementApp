@@ -53,7 +53,7 @@ export class SignupComponent {
     this.authService.register(registerData).subscribe({
       next: (response) => {
         if (response) {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/dashboard']);
         } else {
           this.errorMessage = 'Registration failed. Please try again.';
         }

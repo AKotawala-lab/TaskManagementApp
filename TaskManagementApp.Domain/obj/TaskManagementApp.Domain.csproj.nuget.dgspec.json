@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj": {}
+    "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj": {
+    "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj",
+        "projectUniqueName": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj",
         "projectName": "TaskManagementApp.Domain",
-        "projectPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj",
+        "projectPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\TaskManagementApp.Domain.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\obj\\",
+        "outputPath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
