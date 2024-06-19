@@ -3,6 +3,7 @@ using TaskManagementApp.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace TaskManagementApp.Application.Services
 {
@@ -27,6 +28,8 @@ namespace TaskManagementApp.Application.Services
 
         public async Task<UserTask> AddTaskAsync(UserTask task)
         {
+            task.Id = Guid.NewGuid().ToString();
+            task.CreatedAt = DateTime.Now;
             return await _taskRepository.AddTaskAsync(task);
         }
 

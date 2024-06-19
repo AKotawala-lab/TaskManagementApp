@@ -1,0 +1,131 @@
+.container {
+    text-align: left;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #007bff;
+    margin-right: 10px;
+  }
+  
+  .username {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .date-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .date-navigation .current-date {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .high-priority-card {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+  }
+  
+  .medium-priority-card {
+    border: 2px solid yellow;
+    background-color: #ffffe6;
+  }
+  
+  .low-priority-card {
+    border: 2px solid blue;
+    background-color: #e6f2ff;
+  }
+  
+  .task-tile {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .task-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .task-actions i {
+    cursor: pointer;
+  }
+  
+  .task-details {
+    padding: 10px 0;
+  }
+
+  .high-priority {
+    background-color: #ff9999; /* Slightly darker than the high-priority-card background */
+  }
+  
+  .medium-priority {
+    background-color: #fff176; /* Slightly darker than the medium-priority-card background */
+  }
+  
+  .low-priority {
+    background-color: #90caf9; /* Slightly darker than the low-priority-card background */
+  }
+
+  .search-input {
+    width: 100%;
+  }
+  
+  .fontsearch { 
+    position: relative; 
+  } 
+  
+  .fontsearch i.fa-search{ 
+    position: absolute; 
+    right: 25px; 
+    top: 10px; 
+    color: #007bff; 
+  } 
+
+  .fontdatenav { 
+    position: relative; 
+  } 
+
+  .fontdatenav i.fa-arrow-left,
+  .fontdatenav i.fa-arrow-right {
+    position: absolute; 
+    color: #007bff; 
+  }
+
+  .fontdatenav i.fa-arrow-left {
+    left: 25px;
+    top: 8px;
+  }
+
+  .fontdatenav i.fa-arrow-right {
+    right: 25px;
+    top: 8px;
+  }

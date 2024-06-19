@@ -31,9 +31,9 @@ namespace TaskManagementApp.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllTasks()
+        public async Task<IActionResult> GetTasksByUser(string userId)
         {
-            var tasks = await _taskService.GetAllTasksAsync();
+            var tasks = await _taskService.GetTasksByUserIdAsync(userId);
             return Ok(tasks);
         }
 
@@ -41,7 +41,8 @@ namespace TaskManagementApp.API.Controllers
         public async Task<IActionResult> AddTask([FromBody] UserTask task)
         {
             var addedTask = await _taskService.AddTaskAsync(task);
-            return CreatedAtAction(nameof(GetTaskById), new { id = task.Id }, task);
+            //return CreatedAtAction(nameof(GetTaskById), new { id = task.Id }, task);
+            return Ok(addedTask);
         }
 
         [HttpPut("{id}")]

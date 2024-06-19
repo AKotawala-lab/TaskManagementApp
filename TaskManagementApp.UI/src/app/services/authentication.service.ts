@@ -48,8 +48,9 @@ export class AuthenticationService {
     );
   }
 
-  getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
+  getToken(): string {
+    const token = localStorage.getItem(this.tokenKey);
+    return token ? token : "";
   }
 
   getCurrentUser(): any {

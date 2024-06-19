@@ -84,7 +84,7 @@ export class LoginComponent {
         if (response) {
           this.jwToken = response.token;
 
-          this.router.navigate(['/dashboard', response.user.username]);
+          this.router.navigate(['/dashboard']);
 
         } else {
           this.errorMessage = 'Invalid password. Please try again.';
