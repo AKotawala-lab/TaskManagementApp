@@ -51,7 +51,7 @@ jobs:
         working-directory: ./TaskManagementApp.UI
 
       - name: Create root directory in backend to place frontend build
-        run: mkdir ${{ env.AZURE_WEBUI_PACKAGE_PATH }}  
+        run: mkdir 'wwwroot'  
         working-directory: ${{ env.AZURE_WEBAPI_PACKAGE_PATH }}
         
       - name: Copy frontend build to backend publish folder
