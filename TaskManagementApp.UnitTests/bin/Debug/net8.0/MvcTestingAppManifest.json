@@ -1,6 +1,6 @@
 {
-  "TaskManagementApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application",
-  "TaskManagementApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain",
-  "TaskManagementApp.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Infrastructure",
-  "TaskManagementApp.WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI"
+  "TaskManagementApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Application",
+  "TaskManagementApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Domain",
+  "TaskManagementApp.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.Infrastructure",
+  "TaskManagementApp.WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI"
 }
