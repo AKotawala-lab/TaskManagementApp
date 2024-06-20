@@ -43,15 +43,16 @@ jobs:
         run: dotnet publish ./TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj --configuration Release --no-build --output '${{ env.AZURE_WEBAPI_PACKAGE_PATH }}'
 
       - name: Install dependencies for frontend
-        run: npm install --prefix ./ClientApp
+        run: npm install --prefix
         working-directory: ./TaskManagementApp.UI
 
       - name: Build
-        run: npm run build --if-present --prefix ./ClientApp
+        run: npm run build --if-present --prefix
         working-directory: ./TaskManagementApp.UI
 
       - name: Copy frontend build to backend publish folder
-        run: cp -r ./ClientApp/build/* ${{ env.AZURE_WEBUI_PACKAGE_PATH }}       
+        run: cp -r ./dist/task-management-app.ui/* ${{ env.AZURE_WEBUI_PACKAGE_PATH }}  
+        working-directory: ./TaskManagementApp.UI     
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2

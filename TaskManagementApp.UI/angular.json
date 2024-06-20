@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": {
-              "base": "../TaskManagementApp.WebAPI/wwwroot",
+              "base": "dist/task-management-app.ui",
               "browser": ""
             },
             "index": "src/index.html",
