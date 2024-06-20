@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "Eg+ZKZ2/F8ts032TeJq1Y9KSwf7kwK5fiBlcC4aKkIE=",
+  "Hash": "xiTJHSTmTqXjFZJeHAYHWlCSJMo6EzqKw+3pcbOS84E=",
   "Source": "TaskManagementApp.WebAPI",
   "BasePath": "_content/TaskManagementApp.WebAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "TaskManagementApp.WebAPI\\wwwroot",
+      "Source": "TaskManagementApp.WebAPI",
+      "ContentRoot": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\",
+      "BasePath": "_content/TaskManagementApp.WebAPI",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

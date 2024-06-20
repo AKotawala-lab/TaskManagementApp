@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using System.Runtime.CompilerServices;
 using System.Text;
 using TaskManagementApp.Infrastructure.Repositories;
@@ -10,6 +11,7 @@ using TaskManagementApp.Application.Services;
 using TaskManagementApp.Domain;
 using TaskManagementApp.Infrastructure.Persistence;
 using TaskManagementApp.Application.Helpers;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -95,6 +97,11 @@ builder.Services.AddCors(options =>
         });
 });
 
+builder.Services.AddSpaStaticFiles(configuration =>
+{
+    configuration.RootPath = "wwwroot";
+});
+
 var app = builder.Build();
 
 // Enable CORS
@@ -111,6 +118,19 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseSpaStaticFiles();
+}
+
+app.UseSpa(spa => {
+    spa.Options.SourcePath = "TaskManagementApp.UI";
+    if (app.Environment.IsDevelopment())
+    {
+        spa.UseAngularCliServer(npmScript: "start");
+    }
+});
 
 app.MapControllers();
 

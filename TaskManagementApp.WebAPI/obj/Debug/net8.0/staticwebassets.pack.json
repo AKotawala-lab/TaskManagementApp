@@ -1,0 +1,65 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
+    },
+    {
+      "Id": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\main-7BBRZLUW.js",
+      "PackagePath": "staticwebassets\\main-7BBRZLUW.js"
+    },
+    {
+      "Id": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\media\\fontawesome-webfont-3KIJVIEY.svg",
+      "PackagePath": "staticwebassets\\media\\fontawesome-webfont-3KIJVIEY.svg"
+    },
+    {
+      "Id": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\media\\fontawesome-webfont-5GKVPAEF.woff2",
+      "PackagePath": "staticwebassets\\media\\fontawesome-webfont-5GKVPAEF.woff2"
+    },
+    {
+      "Id": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\media\\fontawesome-webfont-FMJ3VJ65.eot",
+      "PackagePath": "staticwebassets\\media\\fontawesome-webfont-FMJ3VJ65.eot"
+    },
+    {
+      "Id": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\media\\fontawesome-webfont-RJ6LE7IU.ttf",
+      "PackagePath": "staticwebassets\\media\\fontawesome-webfont-RJ6LE7IU.ttf"
+    },
+    {
+      "Id": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\media\\fontawesome-webfont-Z4ARLA73.woff",
+      "PackagePath": "staticwebassets\\media\\fontawesome-webfont-Z4ARLA73.woff"
+    },
+    {
+      "Id": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\polyfills-N6LQB2YD.js",
+      "PackagePath": "staticwebassets\\polyfills-N6LQB2YD.js"
+    },
+    {
+      "Id": "D:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.WebAPI\\wwwroot\\styles-MG5GWROV.css",
+      "PackagePath": "staticwebassets\\styles-MG5GWROV.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TaskManagementApp.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.TaskManagementApp.WebAPI.props",
+      "PackagePath": "build\\TaskManagementApp.WebAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.TaskManagementApp.WebAPI.props",
+      "PackagePath": "buildMultiTargeting\\TaskManagementApp.WebAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.TaskManagementApp.WebAPI.props",
+      "PackagePath": "buildTransitive\\TaskManagementApp.WebAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

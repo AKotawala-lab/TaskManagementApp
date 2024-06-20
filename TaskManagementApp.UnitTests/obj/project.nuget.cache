@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2fMxERdFdfg=",
+  "dgSpecHash": "GMR8JY31BxY=",
   "success": true,
   "projectFilePath": "d:\\Return Back To Job\\Task Management App\\TaskManagementApp\\TaskManagementApp.UnitTests\\TaskManagementApp.UnitTests.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,7 @@
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.6\\microsoft.aspnetcore.cryptography.keyderivation.8.0.6.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.mvc.testing\\8.0.6\\microsoft.aspnetcore.mvc.testing.8.0.6.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.6\\microsoft.aspnetcore.openapi.8.0.6.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.spaservices.extensions\\8.0.6\\microsoft.aspnetcore.spaservices.extensions.8.0.6.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.testhost\\8.0.6\\microsoft.aspnetcore.testhost.8.0.6.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.codecoverage\\17.10.0\\microsoft.codecoverage.17.10.0.nupkg.sha512",

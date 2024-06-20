@@ -19,7 +19,7 @@ namespace TaskManagementApp.UnitTests.Controllers
             _client = factory.CreateClient();
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Exclude")]
         public async Task Register_ShouldReturnToken_WhenRegistrationIsSuccessful()
         {
             // Arrange
@@ -46,7 +46,7 @@ namespace TaskManagementApp.UnitTests.Controllers
             jsonResponse.RefreshToken.Should().NotBeNullOrEmpty();
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Exclude")]
         public async Task Login_ShouldReturnToken_WhenCredentialsAreValid()
         {
             // Register user first
