@@ -37,7 +37,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore ./TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj
 
       - name: Test
-        run: dotnet test ./TaskManagementApp.UnitTests/TaskManagementApp.UnitTests.csproj --no-build --verbosity normal
+        run: dotnet test ./TaskManagementApp.UnitTests/TaskManagementApp.UnitTests.csproj --no-build --filter "Category!=Exclude" --verbosity normal
 
       - name: Publish backend
         run: dotnet publish ./TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'

@@ -13,7 +13,6 @@ export class LoginComponent {
   username: string = "";
   password: string = "";
   errorMessage: string = "";
-  jwToken: string = "";
   showPasswordCard: boolean = false;
   fieldTextType: boolean = false;
 
@@ -82,10 +81,7 @@ export class LoginComponent {
     this.authService.login(loginData).subscribe({
       next: (response) => {
         if (response) {
-          this.jwToken = response.token;
-
           this.router.navigate(['/dashboard']);
-
         } else {
           this.errorMessage = 'Invalid password. Please try again.';
         }

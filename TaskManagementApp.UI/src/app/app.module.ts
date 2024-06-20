@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router'; // Import RouterModule
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';  // Import FormsModule
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgbModule  } from '@ng-bootstrap/ng-bootstrap';
 import { AuthenticationService } from './services/authentication.service';
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { LoginComponent } from './components/authentication/login/login.componen
 import { DashboardComponent } from './components/dashboard.component';
 import { SignupComponent } from './components/authentication/signup/signup.component';
 import { AddEditTaskComponent } from './components/task/add-edit-task.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -35,7 +36,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes) // Add RouterModule with empty routes array
   ],
   exports: [RouterModule],
-  providers: [AuthenticationService],
+  providers: [
+    AuthenticationService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

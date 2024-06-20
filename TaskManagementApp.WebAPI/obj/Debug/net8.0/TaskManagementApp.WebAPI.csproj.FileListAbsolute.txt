@@ -90,3 +90,5 @@ D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.We
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.WebAPI\obj\Debug\net8.0\TaskManagementApp.WebAPI.pdb
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.WebAPI\obj\Debug\net8.0\TaskManagementApp.WebAPI.genruntimeconfig.cache
 D:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.WebAPI\obj\Debug\net8.0\ref\TaskManagementApp.WebAPI.dll
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.WebAPI\bin\Debug\net8.0\TaskManagementApp.WebAPI.staticwebassets.runtime.json
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.SpaServices.Extensions.dll

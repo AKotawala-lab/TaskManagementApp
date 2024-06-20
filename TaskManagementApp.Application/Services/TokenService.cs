@@ -2,27 +2,27 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using TaskManagementApp.Application.Helpers;
 using TaskManagementApp.Application.Interfaces;
+using TaskManagementApp.Application.Models;
 using TaskManagementApp.Domain.Entities;
 
 namespace TaskManagementApp.Application.Services
 {
     public class TokenService : ITokenService
     {
-        private readonly IConfiguration _configuration;
+        private const string JwtKeyConfigName = "JwtSettings:Key"; 
+        private const string JwtIssuerConfigName = "JwtSettings:Issuer";
+        private const string JwtAudienceConfiName = "JwtSettings:Audience";
 
-        public TokenService(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+        public TokenService() {}
 
-        public string GenerateToken(User user)
+        public AuthResponse GenerateToken(User user)
         {
-            var jwtKey = _configuration["JwtSettings:Key"];
-            var jwtIssuer = _configuration["JwtSettings:Issuer"];
-            var jwtAudience = _configuration["JwtSettings:Audience"];
+            var jwtKey = ConfigurationHelper.config.GetSection(JwtKeyConfigName).Value;  //_configuration[JwtKeyConfigName];
+            var jwtIssuer = ConfigurationHelper.config.GetSection(JwtIssuerConfigName).Value;  //_configuration[JwtIssuerConfigName];
+            var jwtAudience = ConfigurationHelper.config.GetSection(JwtAudienceConfiName).Value;  //_configuration[JwtAudienceConfiName];
 
             var claims = new[]
             {
@@ -35,14 +35,49 @@ namespace TaskManagementApp.Application.Services
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(
+            var accessToken = new JwtSecurityToken(
                 issuer: jwtIssuer,
                 audience: jwtAudience,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
+                expires: DateTime.Now.AddMinutes(2),
                 signingCredentials: creds);
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var refreshToken = Guid.NewGuid().ToString();
+
+            // Save the refresh token to the database or other storage with a longer expiration time
+            // e.g., 7 days
+
+            return new AuthResponse
+            {
+                AccessToken = new JwtSecurityTokenHandler().WriteToken(accessToken),
+                RefreshToken = refreshToken
+            };
+        }
+
+        public static ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
+        {
+            var jwtKey = ConfigurationHelper.config.GetSection(JwtKeyConfigName).Value;  //_configuration[JwtKeyConfigName];
+
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateAudience = false,
+                ValidateIssuer = false,
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
+                ValidateLifetime = false // here we are saying that we don't care about the token's expiration date
+            };
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            SecurityToken securityToken;
+            var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
+            var jwtSecurityToken = securityToken as JwtSecurityToken;
+
+            if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+            {
+                throw new SecurityTokenException("Invalid token");
+            }
+
+            return principal;
         }
     }
 }

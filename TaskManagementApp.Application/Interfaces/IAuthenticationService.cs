@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using TaskManagementApp.Application.Models;
 using TaskManagementApp.Domain.Entities;
 
 namespace TaskManagementApp.Application.Interfaces
@@ -7,6 +8,6 @@ namespace TaskManagementApp.Application.Interfaces
     {
         Task<User> RegisterUserAsync(string username, string email, string password, string avatarUrl);
         Task<User> LoginUserAsync(string username, string password);
-        string GenerateToken(User user);
+        AuthResponse GenerateToken(User user);
     }
 }

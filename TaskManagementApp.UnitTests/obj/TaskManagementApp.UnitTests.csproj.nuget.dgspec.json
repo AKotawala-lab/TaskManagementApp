@@ -381,6 +381,10 @@
               "target": "Package",
               "version": "[8.0.6, )"
             },
+            "Microsoft.AspNetCore.SpaServices.Extensions": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.0-preview.4.24267.1, )"
