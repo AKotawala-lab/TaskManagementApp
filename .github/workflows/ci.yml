@@ -50,6 +50,10 @@ jobs:
         run: npm run build --if-present --prefix
         working-directory: ./TaskManagementApp.UI
 
+      - name: Create root directory in backend to place frontend build
+        run: mkdir ${{ env.AZURE_WEBUI_PACKAGE_PATH }}  
+        working-directory: ${{ env.AZURE_WEBAPI_PACKAGE_PATH }}
+        
       - name: Copy frontend build to backend publish folder
         run: cp -r ./dist/task-management-app.ui/* ${{ env.AZURE_WEBUI_PACKAGE_PATH }}  
         working-directory: ./TaskManagementApp.UI     
