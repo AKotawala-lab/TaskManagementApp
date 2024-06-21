@@ -122,13 +122,13 @@ if (!app.Environment.IsDevelopment())
     app.UseSpaStaticFiles();
 }
 
-/*app.UseSpa(spa => {
+app.UseSpa(spa => {
     spa.Options.SourcePath = "TaskManagementApp.UI";
     if (app.Environment.IsDevelopment())
     {
         spa.UseAngularCliServer(npmScript: "start");
     }
-});*/
+});
 
 app.MapControllers();
 
