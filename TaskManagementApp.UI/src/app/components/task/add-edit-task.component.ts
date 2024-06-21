@@ -51,17 +51,14 @@ export class AddEditTaskComponent implements OnInit {
         dueDate: new Date().toISOString(),
         priority: TaskPriority["Low"],
         userId: this.user.id,
-        completed: false,
-        user: this.user
+        completed: false
       };
-    } else {
-      this.task.user = this.user;
     }
   }
 
   onPriorityChange(value: any) { 
     this.task.priority = +TaskPriority[value.target.selectedOptions[0].text]; 
-} 
+  } 
 
   saveTask(): void {
     if (this.task) {
