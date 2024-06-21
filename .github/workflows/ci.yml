@@ -56,11 +56,14 @@ jobs:
       - name: List contents of publish directory
         run: ls -l ./publish
 
+      - name: List contents of wwwroot directory
+        run: ls -l ./publish/wwwroot
+
       - name: List contents of dist directory
         run: ls -l ./TaskManagementApp.UI/dist/task-management-app.ui
       
       - name: Copy frontend build to backend publish folder
-        run: cp -r ./dist/task-management-app.ui/* ${{ env.AZURE_WEBUI_PACKAGE_PATH }}  
+        run: cp -r ./TaskManagementApp.UI/dist/task-management-app.ui/* ./publish/wwwroot  
 
       - name: List contents of wwwroot directory
         run: ls -l ./publish/wwwroot
