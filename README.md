@@ -1,7 +1,13 @@
 **Task Management Application**
 
 **Overview**
+
 The Task Management Application is a web-based tool designed to help users manage their tasks efficiently. The application follows Clean Architecture principles, ensuring a modular, maintainable, and testable codebase. This README file provides instructions on setting up and running the application, along with documentation of any assumptions made during design and implementation.
+
+**Architecture**
+
+Open **"Task Management App Architecture.docx"** file to understand the detailed architecture used to design and develop this project.
+
 
 **Demo Links**
 - UI: [Task Management App UI](https://ad-demo-taskmanagementapp.azurewebsites.net/)
