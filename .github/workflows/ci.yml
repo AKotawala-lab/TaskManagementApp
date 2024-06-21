@@ -8,7 +8,7 @@ on:
     branches:
       - main
 env:
-  AZURE_WEBAPP_NAME: ad-taskmanagement-demo
+  AZURE_WEBAPP_NAME: "ad-demo-taskmanagementapp"
   AZURE_WEBAPI_PACKAGE_PATH: "./publish"
   AZURE_WEBUI_PACKAGE_PATH: "./publish/wwwroot"
   
@@ -40,15 +40,38 @@ jobs:
         run: dotnet test ./TaskManagementApp.UnitTests/TaskManagementApp.UnitTests.csproj --no-build --filter "Category!=Exclude" --verbosity normal
 
       - name: Publish backend
-        run: dotnet publish ./TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+        run: dotnet publish ./TaskManagementApp.WebAPI/TaskManagementApp.WebAPI.csproj --configuration Release --no-build --output '${{ env.AZURE_WEBAPI_PACKAGE_PATH }}'
 
       - name: Install dependencies for frontend
-        run: npm install --prefix ./ClientApp
+        run: npm install --prefix
         working-directory: ./TaskManagementApp.UI
 
       - name: Build
-        run: npm run build --if-present --prefix ./ClientApp
+        run: npm run build --if-present --prefix
         working-directory: ./TaskManagementApp.UI
 
+      - name: Create wwwroot directory
+        run: mkdir -p ./publish/wwwroot
+
+      - name: List contents of publish directory
+        run: ls -l ./publish
+
+      - name: List contents of wwwroot directory
+        run: ls -l ./publish/wwwroot
+
+      - name: List contents of dist directory
+        run: ls -l ./TaskManagementApp.UI/dist/task-management-app.ui
+      
       - name: Copy frontend build to backend publish folder
-        run: cp -r ./ClientApp/build/* ${{ env.AZURE_WEBUI_PACKAGE_PATH }}       
+        run: cp -r ./TaskManagementApp.UI/dist/task-management-app.ui/* ${{ env.AZURE_WEBUI_PACKAGE_PATH }}
+
+      - name: List contents of wwwroot directory
+        run: ls -l ./publish/wwwroot
+      
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}  # Replace with your App Service name
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: "${{ env.AZURE_WEBAPI_PACKAGE_PATH }}"
