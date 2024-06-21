@@ -24,9 +24,9 @@ namespace TaskManagementApp.WebAPI.Controllers
                 await _context.Database.ExecuteSqlRawAsync("SELECT 1");
                 return Ok(new { status = "Healthy" });
             }
-            catch
+            catch (Exception ex)
             {
-                return StatusCode(503, new { status = "Unhealthy" });
+                return StatusCode(503, new { status = "Unhealthy", message = ex.Message });
             }
         }
     }
