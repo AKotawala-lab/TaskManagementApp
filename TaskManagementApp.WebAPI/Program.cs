@@ -108,21 +108,16 @@ var app = builder.Build();
 app.UseCors("AllowSpecificOrigin");
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Task Management API v1"));
-}
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Task Management API v1"));
+
 
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseDefaultFiles();
-app.UseSpaStaticFiles();
-
-/*if (!app.Environment.IsDevelopment())
+if (!app.Environment.IsDevelopment())
 {
     app.UseSpaStaticFiles();
 }
@@ -133,7 +128,7 @@ app.UseSpa(spa => {
     {
         spa.UseAngularCliServer(npmScript: "start");
     }
-});*/
+});
 
 app.MapControllers();
 
