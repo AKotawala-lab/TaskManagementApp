@@ -11,7 +11,7 @@ namespace TaskManagementApp.Domain.Entities
         public TaskPriority Priority { get; set; }
         public string UserId { get; set; }
 
-        public User User { get; set; } // Navigation property
+        public User? User { get; set; } // Navigation property
     }
 
     public enum TaskPriority

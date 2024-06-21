@@ -1,4 +1,11 @@
-  <div class="container">
+<div class="container">
+  <div *ngIf="!isDatabaseReady" class="spinner-container">
+    <div class="spinner"></div>
+    <p>Please wait while we connect you to The Task Management Server...</p>
+    <p class="quote">{{ currentQuote }}</p>
+  </div>
+
+  <div *ngIf="isDatabaseReady">
     <div class="row justify-content-center align-items-center min-vh-100">
       <div class="col-md-6 col-lg-4">
         <h1 class="text-center">Task Management</h1>
@@ -49,5 +56,6 @@
       </div>
     </div>
   </div>
+</div>
   
   

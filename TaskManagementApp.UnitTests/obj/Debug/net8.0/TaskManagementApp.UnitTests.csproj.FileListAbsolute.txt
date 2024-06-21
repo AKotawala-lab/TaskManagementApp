@@ -331,16 +331,9 @@ d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Un
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
-d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
-d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
-d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
-d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
@@ -470,3 +463,10 @@ d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.Un
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\obj\Debug\net8.0\ref\TaskManagementApp.UnitTests.dll
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\TaskManagementApp.WebAPI.staticwebassets.runtime.json
 d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\refs\Microsoft.Extensions.Caching.Abstractions.dll
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\refs\Microsoft.Extensions.Caching.Memory.dll
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\refs\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\refs\Microsoft.Extensions.DependencyInjection.dll
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\refs\Microsoft.Extensions.Logging.dll
+d:\Return Back To Job\Task Management App\TaskManagementApp\TaskManagementApp.UnitTests\bin\Debug\net8.0\refs\Microsoft.Extensions.Options.dll

@@ -31,8 +31,8 @@ builder.Services.AddScoped<IUserManagementService, UserManagementService>();
 // Configure AuthenticationService
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
-builder.Services.AddSingleton<IUserRepository, InMemoryUserRepository>();
-builder.Services.AddSingleton<ITaskRepository, InMemoryTaskRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<ITaskService, TaskService>();
 
@@ -119,7 +119,10 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-if (!app.Environment.IsDevelopment())
+app.UseDefaultFiles();
+app.UseSpaStaticFiles();
+
+/*if (!app.Environment.IsDevelopment())
 {
     app.UseSpaStaticFiles();
 }
@@ -130,7 +133,7 @@ app.UseSpa(spa => {
     {
         spa.UseAngularCliServer(npmScript: "start");
     }
-});
+});*/
 
 app.MapControllers();
 

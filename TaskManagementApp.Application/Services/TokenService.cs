@@ -39,7 +39,7 @@ namespace TaskManagementApp.Application.Services
                 issuer: jwtIssuer,
                 audience: jwtAudience,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(2),
+                expires: DateTime.Now.AddMinutes(25),
                 signingCredentials: creds);
 
             var refreshToken = Guid.NewGuid().ToString();
