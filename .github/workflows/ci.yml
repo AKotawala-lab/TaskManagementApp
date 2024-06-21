@@ -63,7 +63,7 @@ jobs:
         run: ls -l ./TaskManagementApp.UI/dist/task-management-app.ui
       
       - name: Copy frontend build to backend publish folder
-        run: cp -r ./TaskManagementApp.UI/dist/task-management-app.ui/* ./publish/wwwroot  
+        run: cp -r ./TaskManagementApp.UI/dist/task-management-app.ui/* ${{ env.AZURE_WEBUI_PACKAGE_PATH }}'  
 
       - name: List contents of wwwroot directory
         run: ls -l ./publish/wwwroot

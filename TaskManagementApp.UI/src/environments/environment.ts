@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:5201/api',
-    appUrl: 'https://localhost:5201/'
+    apiUrl: 'https://ad-demo-taskmanagementapp.azurewebsites.net/api',
+    appUrl: 'https://ad-demo-taskmanagementapp.azurewebsites.net/'
   };
   
